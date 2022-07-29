@@ -4,7 +4,7 @@ class Solution {
         var answer = 0
         let arr = Array(s)
         for i in 0..<arr.count-1 {
-            var r = dict["\(arr[i])"] ?? 0
+            let r = dict["\(arr[i])"] ?? 0
             if (arr[i] == "I" && (arr[i+1] == "V" || arr[i+1] == "X"))
                 || (arr[i] == "X" && (arr[i+1] == "L" || arr[i+1] == "C"))
                 || (arr[i] == "C" && (arr[i+1] == "D" || arr[i+1] == "M")) {

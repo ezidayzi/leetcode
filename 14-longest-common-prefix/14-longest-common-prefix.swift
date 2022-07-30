@@ -3,20 +3,19 @@ class Solution {
         guard let shortString = strs.min() else {
             return ""
         }
-        var longest = ""
+        var prev = ""
         for i in 0...shortString.count {
             let prefix = shortString.prefix(i)
             var flag = true
-    
             for str in strs {
                 flag = flag && str.hasPrefix(prefix)
             }
             if flag {
-                longest = String(prefix)
+                prev = String(prefix)
             } else {
-                return longest
+                return prev
             }
         }
-        return longest
+        return prev
     }
 }

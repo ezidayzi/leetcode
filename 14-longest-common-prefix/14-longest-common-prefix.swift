@@ -1,23 +1,22 @@
 class Solution {
     func longestCommonPrefix(_ strs: [String]) -> String {
-        guard let shortestString = strs.min() else {
+        guard let shortString = strs.min() else {
             return ""
         }
-        var logest = ""
-        var flag = true
-
-        for i in 0...shortestString.count {
-            let prefix = shortestString.prefix(i)
+        var longest = ""
+        for i in 0...shortString.count {
+            let prefix = shortString.prefix(i)
+            var flag = true
+    
             for str in strs {
                 flag = flag && str.hasPrefix(prefix)
             }
-
             if flag {
-                logest = String(prefix)
+                longest = String(prefix)
             } else {
-                return logest
+                return longest
             }
         }
-        return logest
+        return longest
     }
 }

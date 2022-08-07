@@ -9,26 +9,28 @@
  * }
  */
 class Solution {
-    func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
-        var list1 = l1
-        var list2 = l2
-
+    func mergeTwoLists(_ list1: ListNode?, _ list2: ListNode?) -> ListNode? {
+        var l1 = list1
+        var l2 = list2
+        
         let head: ListNode = ListNode(0)
-        var tmp = head
-        while list1 != nil && list2 != nil {
-            let v1 = list1!.val
-            let v2 = list2!.val
-
-            if v1 > v2 {
-                tmp.next = list2!
-                list2 = list2?.next
+        var current = head
+        
+        while l1 != nil && l2 !=  nil {
+            let val1 = l1!.val
+            let val2 = l2!.val
+            
+            if val1 < val2 {
+                current.next = l1!
+                l1 = l1?.next
             } else {
-                tmp.next = list1!
-                list1 = list1?.next
+                current.next = l2!
+                l2 = l2?.next
             }
-            tmp = tmp.next!
+            current = current.next!
         }
-        tmp.next = list1 ?? list2
+        current.next = l1 ?? l2
         return head.next
     }
 }
+
